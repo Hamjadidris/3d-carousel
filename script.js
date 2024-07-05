@@ -3,7 +3,7 @@ const sliders = document.querySelector(".sliders");
 
 let mouseDown = false;
 
-const mousePos = { x: 0, y: 0 };
+const mousePos = { x: 0, y: -10 };
 const lastSeen = { x: 0, y: 0 };
 
 let id = null;
@@ -15,7 +15,7 @@ setTimeout(function () {
 
 function frame() {
   mousePos.x += 0.5;
-  sliders.style.transform = `translateX(-50%) perspective(1000px) rotateX(-10deg) rotateY(${mousePos.x}deg)`;
+  sliders.style.transform = `translateX(-50%) perspective(1000px) rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`;
 }
 
 sliderContainer.addEventListener("mousedown", (e) => {
@@ -49,18 +49,23 @@ sliderContainer.addEventListener("touchend", (e) => {
 function onMove(e, elem) {
   const mouse_x = e.clientX;
   const mouse_y = e.clientY;
-  //   console.log(mouse_x, mouse_y);
-  if (lastSeen.y !== mouse_y) {
-    mousePos.y += 1;
+
+  if (lastSeen.y > mouse_y) {
+    mousePos.y++;
+  } else if (lastSeen.y < mouse_y) {
+    mousePos.y--;
   }
-  if (lastSeen.x !== mouse_x) {
-    mousePos.x += 1;
+
+  if (lastSeen.x > mouse_x) {
+    mousePos.x--;
+  } else if (lastSeen.x < mouse_x) {
+    mousePos.x++;
   }
 
   lastSeen.y = mouse_y;
   lastSeen.x = mouse_x;
 
-  sliders.style.transform = `translateX(-50%) perspective(1000px) rotateX(-10deg) rotateY(${mousePos.x}deg)`;
+  sliders.style.transform = `translateX(-50%) perspective(1000px) rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`;
 
   //   sliders.style.transform = `rotateY(${mousePos.x}deg) translateX(-50%) perspective(1000px) rotateX(-10deg)`;
 }
