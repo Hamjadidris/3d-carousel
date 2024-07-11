@@ -15,7 +15,7 @@ setTimeout(function () {
 
 function frame() {
   mousePos.x += 0.5;
-  sliders.style.transform = `translateX(-50%) perspective(1000px) rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`;
+  sliders.style.transform = `translateY(-20%) translateX(-50%) perspective(1000px) rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`;
 }
 
 sliderContainer.addEventListener("mousedown", (e) => {
@@ -65,7 +65,7 @@ function onMove(e, elem) {
   lastSeen.y = mouse_y;
   lastSeen.x = mouse_x;
 
-  sliders.style.transform = `translateX(-50%) perspective(1000px) rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`;
+  sliders.style.transform = `translateY(-20%) translateX(-50%) perspective(1000px) rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`;
 
   //   sliders.style.transform = `rotateY(${mousePos.x}deg) translateX(-50%) perspective(1000px) rotateX(-10deg)`;
 }
