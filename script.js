@@ -51,15 +51,15 @@ function onMove(e, elem) {
   const mouse_y = e.clientY;
 
   if (lastSeen.y > mouse_y) {
-    mousePos.y++;
+    mousePos.y += 0.2;
   } else if (lastSeen.y < mouse_y) {
-    mousePos.y--;
+    mousePos.y -= 0.2;
   }
 
   if (lastSeen.x > mouse_x) {
-    mousePos.x--;
+    mousePos.x -= 0.7;
   } else if (lastSeen.x < mouse_x) {
-    mousePos.x++;
+    mousePos.x += 0.7;
   }
 
   lastSeen.y = mouse_y;

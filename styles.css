@@ -2,6 +2,10 @@
   --Ztranslate: 500px;
 }
 
+html {
+  touch-action: none;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,7 +23,7 @@
 
 .main-header {
   color: #5d5959;
-  font-size: 3.5rem;
+  font-size: 3rem;
   text-align: center;
   width: 100%;
   padding: 1rem 0;
@@ -51,7 +55,8 @@
   top: 20%;
   left: 50%;
   transform-style: preserve-3d;
-  transform: translateY(-20%) translateX(-50%) rotateX(-10deg) perspective(1000px);
+  transform: translateY(-20%) translateX(-50%) rotateX(-10deg)
+    perspective(1000px);
 }
 
 @keyframes spin {
