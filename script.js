@@ -33,17 +33,19 @@ sliderContainer.addEventListener("mousemove", (e) => {
   if (mouseDown) onMove(e, elem);
 });
 
-sliderContainer.addEventListener("touchmove", (e) => {
-  const elem = e.target;
-  onMove(e.targetTouches[0], elem);
-});
-
 sliderContainer.addEventListener("touchstart", (e) => {
+  mouseDown = true;
   clearInterval(id);
 });
 
 sliderContainer.addEventListener("touchend", (e) => {
+  mouseDown = false;
   id = setInterval(frame, 35);
+});
+
+sliderContainer.addEventListener("touchmove", (e) => {
+  const elem = e.target;
+  if (mouseDown) onMove(e.targetTouches[0], elem);
 });
 
 function onMove(e, elem) {
